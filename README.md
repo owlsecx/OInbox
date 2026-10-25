@@ -18,13 +18,18 @@
 
 ## 📌 Overview
 
-Parse raw email headers · SPF/DKIM/DMARC ·
+OInbox analyses phishing and suspicious email headers with SPF, DKIM, DMARC, ARC, hop-path, and spoofing checks. It scores risk, flags lookalike domains, and can optionally enrich with GeoIP. Single-file and batch folder modes plus JSON output support SOC triage of .eml evidence.
 
 ---
 
 ## ✨ Features
 
-- Phishing email header analyzer — SPF, DKIM, DMARC, ARC, lookalike domains and hop path
+- Parse raw .eml/.txt headers for authentication results
+- SPF, DKIM, DMARC, and ARC oriented validation signals
+- Hop-path reconstruction and spoofing/lookalike detection
+- Risk scoring with attachment-aware context
+- Optional GeoIP lookup (off by default)
+- Batch folder analysis and JSON stdout for pipelines
 
 ---
 
@@ -38,7 +43,10 @@ Parse raw email headers · SPF/DKIM/DMARC ·
 ## 🚀 Usage
 
 ```bash
-./OInbox
+./OInbox --file suspicious.eml
+./OInbox --batch ./eml_inbox --json
+./OInbox --file note.eml --geoip
+./OInbox --help
 ```
 
 ---
